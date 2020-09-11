@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0c0458cd7bf0aa562d0e4f09f6d9d59",
+    "content-hash": "d7263be1c33c2c6d0cb0b0d63fc86155",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -919,6 +919,61 @@
                 "psysh"
             ],
             "time": "2020-08-11T19:28:08+00:00"
+        },
+        {
+            "name": "laravel/ui",
+            "version": "v2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/ui.git",
+                "reference": "f5398544a9cd4804a42d09ce51735e37cd51ea2d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/f5398544a9cd4804a42d09ce51735e37cd51ea2d",
+                "reference": "f5398544a9cd4804a42d09ce51735e37cd51ea2d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^7.0",
+                "illuminate/filesystem": "^7.0",
+                "illuminate/support": "^7.0",
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Ui\\UiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Ui\\": "src/",
+                    "Illuminate\\Foundation\\Auth\\": "auth-backend/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel UI utilities and presets.",
+            "keywords": [
+                "laravel",
+                "ui"
+            ],
+            "time": "2020-09-11T15:31:52+00:00"
         },
         {
             "name": "league/commonmark",
@@ -4546,6 +4601,71 @@
                 "symfony"
             ],
             "time": "2020-04-04T19:56:08+00:00"
+        },
+        {
+            "name": "olimortimer/laravelshoppingcart",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/olimortimer/LaravelShoppingcart.git",
+                "reference": "bcd52a0e60670ca64fe8af991ae2e2cd1f547dcf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/olimortimer/LaravelShoppingcart/zipball/bcd52a0e60670ca64fe8af991ae2e2cd1f547dcf",
+                "reference": "bcd52a0e60670ca64fe8af991ae2e2cd1f547dcf",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/events": "5.*.* || 6.*.* || 7.*.*",
+                "illuminate/session": "5.*.* || 6.*.* || 7.*.*",
+                "illuminate/support": "5.*.* || 6.*.* || 7.*.*"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.0 || ^1.0",
+                "orchestra/testbench": "~3.1",
+                "phpunit/phpunit": "~5.0 || ~6.0 || ~7.0 || ~8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider"
+                    ],
+                    "aliases": {
+                        "Cart": "Gloudemans\\Shoppingcart\\Facades\\Cart"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Gloudemans\\Shoppingcart\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Gloudemans",
+                    "email": "info@robgloudemans.nl"
+                },
+                {
+                    "name": "Michael V.",
+                    "email": "michael@michaelbelgium.me"
+                },
+                {
+                    "name": "Oli Mortimer",
+                    "email": "oli@olimortimer.com"
+                }
+            ],
+            "description": "Laravel Shoppingcart",
+            "keywords": [
+                "laravel",
+                "shoppingcart"
+            ],
+            "time": "2020-03-24T13:17:26+00:00"
         },
         {
             "name": "phar-io/manifest",
