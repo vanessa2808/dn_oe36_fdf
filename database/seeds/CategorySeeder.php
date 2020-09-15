@@ -12,7 +12,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
+        DB::table('category')->insert([
             [
                 'category_name' => 'Cafe',
                 'created_at' => Carbon::now(),

@@ -24,5 +24,14 @@ class Category extends Model
         return $this->hasMany(Suggest::class, 'category_id', 'id');
     }
 
+    public function parent()
+    {
+        return $this->hasOne(Category::class, 'parent_id', 'id');
+    }
+
+    public function childs()
+    {
+        return $this->hasMany(Category::class, 'parent_id', 'id');
+    }
 
 }
