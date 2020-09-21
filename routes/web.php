@@ -20,31 +20,39 @@ Route::group(['prefix' => 'admin'], function () {
         return view('admin.login.login');
     });
 });
+Route::group(['namespace' => 'Users'], function () {
 
-Route::get('/shopping-cart', 'Users\CartController@show')->name('cart.show');
+    Route::get('/shopping-cart', 'CartController@show')->name('cart.show');
 
-Route::resource('products', 'Users\ProductController');
+    Route::resource('products', 'ProductController');
 
-Route::get('/shop', 'Users\ProductController@indexShop')->name('shop.index');
+    Route::get('/shop', 'ProductController@indexShop')->name('shop.index');
 
+    Route::get('orders/order_history', 'OrderController@index')->name('orders.index');
 
-Route::get('/home', 'Users\ProductController@index')->name('home');
+    Route::get('orders/store', 'OrderController@store')->name('orders.store');
 
-Route::get('/addToCart/{product}', 'Users\CartController@create')->name('cart.add');
+    Route::resource('orders', 'OrderController')->only('show');
 
-Route::put('/products/{product}', 'Users\CartController@update')->name('cart.update');
+    Route::resource('orders', 'OrderController')->only('show');
 
-Route::delete('/products/{product}', 'Users\CartController@destroy')->name('product.remove');
+    Route::get('/home', 'ProductController@index')->name('home');
 
-Route::get('/', 'Users\ProductController@index', function () {
-    return view('users.products.index');
+    Route::get('/addToCart/{product}', 'CartController@create')->name('cart.add');
+
+    Route::put('/products/{product}', 'CartController@update')->name('cart.update');
+
+    Route::delete('/products/{product}', 'CartController@destroy')->name('product.remove');
+
+    Route::get('/', 'ProductController@index', function () {
+        return view('users.products.index');
+    });
+
+    Route::get('/addToCart/{product}', 'CartController@create')->name('cart.add');
+
+    Route::delete('/products/{product}', 'CartController@destroy')->name('product.remove');
 });
 
-Route::get('orders/store', 'Users\OrderController@store')->name('orders.store');
-
-Route::get('/addToCart/{product}', 'Users\CartController@create')->name('cart.add');
-
-Route::delete('/products/{product}', 'Users\CartController@destroy')->name('product.remove');
 
 Route::get('language/{language}', 'LanguageController@index')->name('language.index');
 

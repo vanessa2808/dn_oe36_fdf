@@ -128,17 +128,16 @@ return [
         'success' => 'Product Was Added',
         'success1' => 'Product Was Removed',
         'success3' => 'You cart Was updated',
-        'detail' => 'List Detail'
+        'status' => 'status',
+        'users' => 'user_name',
+        'detail' => 'Detail',
+        'address' => 'Address',
+        'phone' => 'Phone'
     ],
     'order' => [
         'success' => 'Thank you for your order',
         'fail' => 'Please try again',
         'order_product' => 'Ordered product',
-    ],
-    'users' => [
-        'user_name' => 'User Name',
-        'address' => 'Address',
-        'success2' => 'Product Was Removed',
     ],
     'users' => [
         'id' => 'ID',
@@ -158,23 +157,6 @@ return [
         'edit_user' => 'Edit User',
         'success2' => 'Product Was Removed',
     ],
-    'users' => [
-        'id' => 'ID',
-        'user_name' => 'User Name',
-        'role_id' => 'Role Name',
-        'phone' => 'Phone',
-        'email' => 'Email',
-        'address' => 'Address',
-        'action' => 'Action',
-        'edit' => 'Edit',
-        'delete' => 'Delete',
-        'show_detail' => 'Detail',
-        'list_user' => 'List User',
-        'add_user' => 'Add User',
-        'password' => 'Password',
-        'submit' => 'Submit',
-        'edit_user' => 'Edit User'
-    ],
     'orders' => [
         'list_user' => 'List User',
         'user_id' => 'User Name',
@@ -192,6 +174,8 @@ return [
     ],
     'status' => [
         'success' => 'Status was changed',
-        'fail' => 'Order was not existed'
+        'fail' => 'Order was not existed',
+        'confirm' => 'Confirmed order',
+        'receive' => 'Received order'
     ]
 ];

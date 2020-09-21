@@ -62,11 +62,10 @@ class Cart extends Model
 
     public function updateCart($id, $quantity)
     {
-        $this->totalQuantity -= $this->items[$id]['quantity'] ;
-        $this->totalPrice -= $this->items[$id]['price'] * $this->items[$id]['quantity']   ;
-        $this->items[$id]['quantity'] = $quantity;
-        $this->totalQuantity += $quantity ;
-        $this->totalPrice += $this->items[$id]['price'] * $quantity   ;
+        $this->totalQuantity -= $this->items[$id]['quantity'];
+        $this->totalPrice -= $this->items[$id]['price'] * $this->items[$id]['quantity'];
+        $this->items['$id']['quantity'] = $quantity;
+        $this->totalQuantity += $quantity;
+        $this->totalPrice += $this->items[$id]['price'] * $quantity;
     }
-
 }
