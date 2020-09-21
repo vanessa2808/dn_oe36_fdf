@@ -128,4 +128,33 @@ return [
         'success' => 'Product Was Added',
         'success2' => 'Product Was Removed',
     ],
+    'users' => [
+        'id' => 'ID',
+        'user_name' => 'User Name',
+        'role_id' => 'Role Name',
+        'phone' => 'Phone',
+        'email' => 'Email',
+        'address' => 'Address',
+        'action' => 'Action',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+        'show_detail' => 'Show Detail',
+        'list_user' => 'List User',
+        'add_user' => 'Add User',
+        'password' => 'Password',
+        'submit' => 'Submit',
+        'edit_user' => 'Edit User'
+    ],
+    'orders' => [
+        'list_user' => 'List User',
+        'user_id' => 'User Name',
+        'total_price' => 'Total price',
+        'status' => 'Status',
+        'create_at' => 'Create At',
+        'update_at' => 'Update At',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+        'show_detail' => 'Show Detail',
+        'id' => 'ID'
+    ]
 ];

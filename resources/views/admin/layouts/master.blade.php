@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="admin_layouts/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <link rel="stylesheet" href="admin_layouts/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="css/category.css">
+
+</head>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -35,6 +37,7 @@
 <script src="admin_layouts/plugins/jquery-mapael/maps/usa_states.min.js"></script>
 <script src="admin_layouts/plugins/chart.js/Chart.min.js"></script>
 <script src="admin_layouts/dist/js/demo.js"></script>
+<script src="js/status.js"></script>
 <script src="admin_layouts/dist/js/pages/dashboard2.js"></script>
 </body>
 </html>

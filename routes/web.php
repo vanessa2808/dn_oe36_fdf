@@ -45,5 +45,14 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'verified', 'middleware' =
         Route::resource('products', 'ProductController')->except([
             'show'
         ]);
+
+        Route::resource('users', 'UserController');
+
+        Route::resource('orders', 'OrderController');
+
+        Route::resource('suggests', 'SuggestController');
+
+        Route::get('changeStatus', 'OrderController@ChangeUserStatus');
+
     });
 });

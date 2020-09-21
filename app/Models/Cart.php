@@ -31,7 +31,7 @@ class Cart extends Model
             'product_name' => $product->product_name,
             'price' => $product->price,
             'quantity' => 0,
-            'product_image' => $product->product_image,
+            'product_image' => $product->image,
         ];
 
         if (!array_key_exists($product->id, $this->items)) {
