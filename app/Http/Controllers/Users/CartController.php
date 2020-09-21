@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Users;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Product;
-use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
@@ -45,16 +44,15 @@ class CartController extends Controller
     {
         $cart = new Cart(session()->get('cart'));
         $cart->remove($product->id);
-
         if ($cart->totalQuantity <= 0) {
-            session()->forget('cart');
+            $cart->remove($product->id);
         } else {
             session()->put('cart', $cart);
         }
 
         return redirect()->route('cart.show')->with('success', trans('messages.cart.success1'));
-
     }
+
 
     public function update(Request $request, Product $product)
     {

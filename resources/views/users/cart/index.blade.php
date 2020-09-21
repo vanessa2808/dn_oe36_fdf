@@ -4,6 +4,7 @@
     @if( session()->has('success'))
         <div class="alert alert-success">{{ session()->get('success') }}</div>
     @endif
+
     <section class="breadcrumb-section set-bg" data-setbg="user_layouts/img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
@@ -49,19 +50,14 @@
                                         <td>
                                             <img src="{{asset('image/'.$product['product_image'])}}" alt="">
                                         </td>
-                                        <form action="{{ route('cart.update',$product['id'])}}" method="post">
-                                            @csrf
-                                            @method('put')
-                                            <td class="shoping__cart__quantity">
-                                                <div class="quantity">
-                                                    <div class="pro-qty">
-                                                        <input id="quantity" name="quantity" type="text"
-                                                               value="{{ $product['quantity']}}">
-                                                    </div>
+                                        <td class="shoping__cart__quantity">
+                                            <div class="quantity">
+                                                <div class="pro-qty">
+                                                    <input id="quantity" name="quantity" type="text"
+                                                           value="{{ $product['quantity']}}">
                                                 </div>
-                                            </td>
-                                            <button type="submit" class="btn btn-secondary btn-sm">Change</button>
-                                        </form>
+                                            </div>
+                                        </td>
                                         <td class="shoping__cart__total">
                                             {{$product['price'] * $product['quantity'] }}
                                         </td>
@@ -69,7 +65,8 @@
                                             <form action="{{ route('product.remove', $product['id'] )}}" method="post">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="submit" class="btn btn-danger style1 btn-sm ml-4 float-right">@lang('messages.cart.remove')
+                                                <button type="submit" class="btn btn-danger btn-sm ml-4 float-right"
+                                                        style="margin-top: -30px;">@lang('messages.cart.remove')
                                                 </button>
                                             </form>
                                         </td>
@@ -85,7 +82,8 @@
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
                         <a href="#" class="primary-btn cart-btn">@lang('messages.cart.continue')</a>
-                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
+                        <a href="{{ route('cart.update',$product['id'])}}"
+                           class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
                             @lang('messages.cart.update')</a>
                     </div>
                 </div>
@@ -107,7 +105,7 @@
                             <li>@lang('messages.cart.total_quantity') <span>{{$cart->totalQuantity}}</span></li>
                             <li>@lang('messages.cart.total') <span>{{$cart->totalPrice}} VND</span></li>
                         </ul>
-                        <a href="#" class="primary-btn">@lang('messages.cart.checkout')</a>
+                        <a href="{{route('orders.store')}}" class="primary-btn">@lang('messages.cart.checkout')</a>
                     </div>
                 </div>
             </div>

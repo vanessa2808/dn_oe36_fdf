@@ -3,7 +3,11 @@
 namespace App\Providers;
 
 use App\Models\Product;
+use App\Models\OrderDetail;
+use App\Models\Order;
+use App\Repositories\Eloquent\OrderDetailRepository;
 use App\Repositories\Eloquent\ProductRepository;
+use App\Repositories\Interfaces\OrderDetailRepositoryInterface;
 use App\Repositories\Interfaces\ProductRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Category;
@@ -23,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
         $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
+        $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
+        $this->app->bind(OrderDetailRepositoryInterface::class, OrderDetailRepository::class);
     }
 
     /**
@@ -34,6 +40,8 @@ class AppServiceProvider extends ServiceProvider
     {
         View::share('category_list', Category::all());
         View::share('product_list', Product::all());
+        View::share('order_list', Order::all());
+        View::share('order_detail', OrderDetail::all());
     }
 
 }

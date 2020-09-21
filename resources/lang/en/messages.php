@@ -126,6 +126,12 @@ return [
         'availability' => 'Availability',
         'shipping' => 'Shipping',
         'success' => 'Product Was Added',
-        'success2' => 'Product Was Removed',
+        'success1' => 'Product Was Removed',
+        'success3' => 'You cart Was updated',
     ],
+    'order' => [
+        'success' => 'Thank you for your order',
+        'fail' => 'Please try again',
+        'order_product' => 'Ordered product',
+    ]
 ];
