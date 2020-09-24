@@ -19,7 +19,7 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     public function getOrders()
     {
 
-        return $this->model->paginate(Config::get('app.paginate'));
+        return $this->model->orderby('id', 'desc')->paginate(Config::get('app.paginate'));
 
     }
 

@@ -12,28 +12,28 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
-use App\Repositories\Interfaces\OrderDetailRepositoryInterface;
+use App\Repositories\Interfaces\OrderRepositoryInterface;
 
 class OrderController extends Controller
 {
     protected $cart;
     protected $order;
     protected $product;
-    protected $orderDetailRepository;
+    protected $orderRepository;
 
-    public function __construct(Product $product, Order $order, Cart $cart, OrderDetailRepositoryInterface $orderDetailRepository)
+    public function __construct(Product $product, Order $order, Cart $cart, OrderRepositoryInterface $orderRepository)
     {
         $this->middleware('auth');
         $this->product = $product;
         $this->order = $order;
         $this->cart = $cart;
-        $this->orderDetailRepository = $orderDetailRepository;
+        $this->orderRepository = $orderRepository;
     }
 
     public function index()
     {
-        $orderDetail_list = $this->orderDetailRepository->getOrderDetails();
-        return view('users.orders.index', compact(['orderDetail_list']));
+        $order_list = $this->orderRepository->getOrders();
+        return view('users.orders.index', compact(['order_list']));
     }
 
     public function create()
@@ -75,23 +75,7 @@ class OrderController extends Controller
             return redirect()->back()->with('success', trans('messages.order.fail'));
         }
 
-        return redirect()->route('cart.show')->with('success', trans('messages.order.success'));
-    }
-
-    public function show($id)
-    {
-        $order_detail = $this->orderDetailRepository->findOrders($id);
-
-        if(!($order_detail))
-        {
-
-            return redirect()->back();
-
-        }
-
-        return view('users.orders.index', [
-            'order_detail' => $order_detail
-        ]);
+        return redirect()->route('orders.index')->with('success', trans('messages.order.success'));
     }
 
     public function edit($id)

@@ -128,10 +128,13 @@ return [
         'success' => 'Product Was Added',
         'success1' => 'Product Was Removed',
         'success3' => 'You cart Was updated',
+        'status' => 'status'
     ],
     'order' => [
         'success' => 'Thank you for your order',
         'fail' => 'Please try again',
         'order_product' => 'Ordered product',
+        'confirm' => 'Confirmed order',
+        'receive' => 'Received order'
     ]
 ];

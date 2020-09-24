@@ -26,6 +26,10 @@ Route::get('/', 'Users\ProductController@index', function () {
 
 Route::get('orders/store', 'Users\OrderController@store')->name('orders.store');
 
+Route::get('orders/index', 'Users\OrderController@index')->name('orders.index');
+
+//Route::get('orders/index', 'Users\OrderDetailController@index')->name('orders.index');
+
 Route::get('language/{language}', 'LanguageController@index')->name('language.index');
 
 Route::group(['namespace' => 'Admin', 'middleware' => 'verified', 'middleware' => 'administrator'], function () {

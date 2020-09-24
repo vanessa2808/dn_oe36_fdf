@@ -67,7 +67,7 @@
                         <li><a href="#">@lang('messages.user_layouts.shop')</a></li>
                         <li><a href="#">Cart</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="#">@lang('messages.user_layouts.shop_detail')</a></li>
+                                <li><a href="{{route('orders.index')}}">@lang('messages.user_layouts.shop_detail')</a></li>
                                 <li><a href="{{route('cart.show')}}">@lang('messages.user_layouts.shop_cart')</a></li>
                                 <li><a href="#">@lang('messages.user_layouts.checkout')</a></li>
                                 <li><a href="#">@lang('messages.user_layouts.blog_detail')</a></li>
