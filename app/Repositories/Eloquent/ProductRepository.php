@@ -107,4 +107,17 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         return false;
     }
 
+    public function filterProduct($request)
+    {
+        $products = $this->model->query()
+            ->category_id($request)
+            ->product_name($request)
+            ->description($request)
+            ->sortPrice($request)
+            ->product_image($request)
+            ->price($request)
+            ->amount($request);
+        return $products;
+    }
+
 }

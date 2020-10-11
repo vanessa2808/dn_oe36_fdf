@@ -46,4 +46,12 @@ class Product extends Model
             ->orWhere('price', 'like', '%' . $key . '%');
     }
 
+    public function scopeSortPrice($query, $request)
+    {
+        if ($request->has('sort') && isset($request->sort)) {
+            $query->orderBy('price', $request->sort);
+        }
+        return $query;
+    }
+
 }

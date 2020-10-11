@@ -14,4 +14,6 @@ interface ProductRepositoryInterface
 
     public function deleteProduct($id);
 
+    public function filterProduct($request);
+
 }
