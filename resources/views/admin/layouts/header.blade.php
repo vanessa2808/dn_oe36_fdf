@@ -89,28 +89,37 @@
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="far fa-bell"></i>
-                <span class="badge badge-warning navbar-badge">15</span>
+                <i class="far fa-bell dropdown-notifications"></i>
+                <span data-count="0" class="badge badge-warning navbar-badge"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <span class="dropdown-item dropdown-header">15 Notifications</span>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-envelope mr-2"></i> 4 new messages
-                    <span class="float-right text-muted text-sm">3 mins</span>
+                <span class="dropdown-item dropdown-header">Notifications (<span class="notif-count">0</span>)</span>
+                <div class="dropdown-container">
+                    <div id="create-scroll">
+                        @foreach(Auth()->user()->Notifications as $notification)
+                            <div class="media" id="media">
+                                <div class="media-left">
+                                    <div class="media-object">
+                                        <img src="https://api.adorable.io/avatars/71/`+avatar+`.png" class="img-circle"
+                                             alt="50x50" id="avatar">
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    <strong class="notification-title">Một đơn hàng vừa được tạo</strong>
+                                    <p class="notification-desc">{{$notification->data['user']['user_name']}} vừa đặt
+                                        một đơn hàng. Click để xem chi tiết</p>
+                                    <div class="notification-meta">
+                                        <small class="timestamp">{{ $notification->created_at }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="dropdown-footer text-center">
+                        <a href="#">View All</a>
+                    </div>
+                </div>
                 </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-users mr-2"></i> 8 friend requests
-                    <span class="float-right text-muted text-sm">12 hours</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-file mr-2"></i> 3 new reports
-                    <span class="float-right text-muted text-sm">2 days</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>
         </li>
         <li><a class="dropdown-item" href="{{ route('logout') }}"
@@ -119,7 +128,7 @@
             </a>
         </li>
     </ul>
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    <form id="logout-form" action="{{ route('logout') }}" method="POST">
         @csrf
     </form>
     </li>

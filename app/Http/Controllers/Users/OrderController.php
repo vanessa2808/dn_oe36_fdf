@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendEmailToUser;
+use App\Mail\customerOrder;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderDetail;
@@ -15,7 +17,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use App\Repositories\Interfaces\OrderRepositoryInterface;
 use App\Repositories\Interfaces\OrderDetaiRepositoryInterface;
-
+use Mail;
+use App\Models\User;
+use Notification;
+use Pusher\Pusher;
+use App\Notifications\ReceiveOrder;
 
 class OrderController extends Controller
 {
@@ -42,6 +48,30 @@ class OrderController extends Controller
     {
         if ($this->orderRepository->createOrder($request->all()))
         {
+            $oldCart = Session::get('cart');
+            $cart = new Cart($oldCart);
+            $orderedProducts = session('cart');
+            $total =$cart->totalPrice;
+            SendEmailToUser::dispatch(Auth::user()->email, $orderedProducts, $total);
+            $notyAdmin = User::where('role_id', '=', config('const.role.admin'))->get();
+            \Notification::send($notyAdmin, new ReceiveOrder());
+            $data['title'] = "Xin chào admin! ";
+            $data['content'] = "Bạn có đơn hàng từ khách";
+
+            $options = array(
+                'cluster' => 'ap1',
+                'encrypted' => true
+            );
+
+            $pusher = new Pusher(
+                env('PUSHER_APP_KEY'),
+                env('PUSHER_APP_SECRET'),
+                env('PUSHER_APP_ID'),
+                $options
+            );
+
+            $pusher->trigger('NewOrderToAdmin', 'send-message', $data);
+
 
             return redirect()->back()->with('success', trans('messages.order.success'));
 
