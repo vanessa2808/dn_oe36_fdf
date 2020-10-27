@@ -209,7 +209,8 @@ return [
         'detail_new' => 'You have a new order, please check!',
         'message' => 'Một đơn hàng vừa được tạo',
         'order' => 'vừa đặt một đơn hàng. Click để xem chi tiết',
-        'view' => 'View All'
+        'view' => 'View All',
+        'orderNew' => 'Accept New Order',
     ],
     'chart' => [
         'welcome' => 'Welcome To Statistic',
@@ -221,7 +222,11 @@ return [
         'quarter' => 'Quarter',
         'year' => 'Year',
         'view' => 'View All',
-        'orderNew' => 'Accept New Order'
+        'reportDay' => 'Report Per Day',
+        'reportYear' => 'Report Per Year',
+        'reportMonth' => 'Report Per Month',
+        'reportQuarter' => 'Report Per Quarter',
+        'reportWeek' => 'Report Per Week',
     ],
     'mail' => [
         'header_user' => 'Dear you!',
@@ -233,7 +238,12 @@ return [
         'footer_accept' => ' Enjoy my food, Have a good day!',
         'header_admin' => 'Dear admin',
         'footer_admin' => 'Please, visit recipe website with admin role to check the order',
-        'body_admin' => 'You have a new order,'
+        'body_admin' => 'You have a new order',
+        'report' => 'Yearly Recap Report',
+        'action' => 'Action',
+        'another' => 'Another Action',
+        'something' => 'Something else here',
+        'separated' => 'Separated link',
     ]
 
 ];
